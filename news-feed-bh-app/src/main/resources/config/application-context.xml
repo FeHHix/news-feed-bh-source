@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:annotation-config/>
+	<tx:annotation-driven/>
+
+    <context:component-scan base-package="com.company.news.feed.services; 
+				com.company.news.feed.referencial"/>
+	
+	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/newsFeedDS"/>
+ 	
+    <import resource="classpath*:common-services.xml"/>
+    <import resource="classpath:config/common-application-resources.xml"/>
+ 
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+ 
+ 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:conf.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+    	    
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean" depends-on="flyway">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan">
+            <list>          
+                <value>com.company.news.feed.referencial.entity.*</value>
+            </list>
+        </property>
+        <property name="jpaVendorAdapter">
+        	<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+            	<property name="database" value="ORACLE" />
+             	<property name="generateDdl" value="false"/>
+             	<property name="showSql" value="true"/>
+         	</bean>
+        </property>
+        <property name="jpaDialect">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <!--  <prop key="hibernate.transaction.manager_lookup_class">org.hibernate.transaction.WebSphereExtendedJTATransactionLookup</prop> -->
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+                <prop key="javax.persistence.schema-generation.database.action">none</prop>
+                <prop key="jadira.usertype.autoRegisterUserTypes">true</prop> <!-- persistence for joda-time -->
+             	<prop key="hibernate.id.new_generator_mappings">true</prop>
+             	<prop key="hibernate.show_sql">false</prop>
+            </props>            
+        </property>
+    </bean>
+    
+    <!--bean id="propertyConfigurerDB" class="com.accenture.cbr.common.referencial.business.config.ConfigPlaceholderConfigurer" depends-on="flyway">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="ignoreUnresolvablePlaceholders" value="true"/>
+        <property name="order" value="1"/>
+    </bean-->
+ </beans>
