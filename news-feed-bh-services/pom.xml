@@ -1,8 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-
-	<groupId>com.company.news</groupId>
+  	<parent>
+  		<groupId>com.company.news</groupId>
+		<artifactId>news-feed</artifactId>
+		<version>1.0.0</version>
+		<relativePath>../news-feed</relativePath>
+  	</parent>
+  	
+  	<modelVersion>4.0.0</modelVersion>
+	
 	<artifactId>news-feed-bh-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
@@ -14,9 +20,15 @@
 		<dependency>
            <groupId>javax</groupId>
            <artifactId>javaee-api</artifactId>
-           <version>7.0</version>
+           <version>${javaee.api.version}</version>
            <scope>provided</scope>
        	</dependency>
+       	
+       	<dependency>
+		    <groupId>org.springframework.data</groupId>
+		    <artifactId>spring-data-jpa</artifactId>
+		    <version>${spring.data.version}</version>
+		</dependency>
 	       
 		<dependency>
 			<groupId>junit</groupId>
