@@ -21,7 +21,7 @@
 	<modules>
 		<module>../news-feed-integration</module>
 		<module>../news-feed-fe-services</module>
-		<module>../news-feed-integration</module>
+		<module>../news-feed-bh-services</module>
 		<module>../news-feed-bh-app</module>
 	</modules>
 </project>
