@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>com.company.news</groupId>
 			<artifactId>news-feed-bh-services</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${news.feed.app.version}</version>
 		</dependency>
 		
 		<dependency>

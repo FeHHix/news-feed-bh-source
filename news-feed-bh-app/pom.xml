@@ -19,7 +19,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.company.news</groupId>
-			<artifactId>news-feed-integration</artifactId>
+			<artifactId>news-feed-fe-services</artifactId>
 			<version>${news.feed.app.version}</version>
 		</dependency>
 		
