@@ -18,6 +18,12 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.company.news</groupId>
+			<artifactId>news-feed-integration</artifactId>
+			<version>${news.feed.app.version}</version>
+		</dependency>
+		
+		<dependency>
 	        <groupId>org.springframework</groupId>
 	        <artifactId>spring-context</artifactId>
 	        <version>${spring.version}</version>
