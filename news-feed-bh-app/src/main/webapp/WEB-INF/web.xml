@@ -15,6 +15,14 @@
 	<param-value>classpath:/config/application-context.xml</param-value>
   </context-param>
   
+  <listener>
+    <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+  </listener>
+  
+  <listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener> 
+  
   <servlet>
 	<servlet-name>CXFServlet</servlet-name>
 	<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
