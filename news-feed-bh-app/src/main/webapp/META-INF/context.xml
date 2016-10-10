@@ -2,5 +2,19 @@
 <Context>
 
     <!--Parameter name="AppName" value="news-feed"/-->
+              
+    <Resource name="jdbc/newsFeedDS"
+        auth="Container"
+        type="javax.sql.DataSource"
+        driverClassName="oracle.jdbc.OracleDriver"
+        url="jdbc:oracle:thin:@localhost:1521:XE"
+        username="newsfeed"
+        password="123456"
+        connectionProperties="SetBigStringTryClob=true"
+	 	accessToUnderlyingConnectionAllowed="true"
+        maxTotal="60"
+        maxIdle="20"
+        maxWaitMillis="10000"
+    	/>
 	
 </Context>
