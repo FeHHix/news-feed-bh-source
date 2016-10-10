@@ -17,6 +17,7 @@
 		<spring.version>4.2.0.RELEASE</spring.version>
 		<spring.data.version>1.9.0.RELEASE</spring.data.version>
 		<lombok.version>1.16.10</lombok.version>
+		<cxf.version>3.0.8</cxf.version>
 		<jmv.version>1.7</jmv.version>
 	</properties>
 	

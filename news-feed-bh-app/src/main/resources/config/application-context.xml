@@ -17,8 +17,8 @@
 	
 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/newsFeedDS"/>
  	
-    <import resource="classpath*:common-services.xml"/>
     <import resource="classpath:config/common-application-resources.xml"/>
+    <import resource="classpath:news-feed-client-beans.xml"/>
  
 	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" >
         <property name="entityManagerFactory" ref="entityManagerFactory" />
