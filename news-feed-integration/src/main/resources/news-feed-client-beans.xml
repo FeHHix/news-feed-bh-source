@@ -11,7 +11,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
 http://cxf.apache.org/transports/http/configuration http://cxf.apache.org/schemas/configuration/http-conf.xsd
 http://cxf.apache.org/configuration/security http://cxf.apache.org/schemas/configuration/security.xsd">
 
-	<jaxws:client id="NewsFeedService_Client"
+	<jaxws:client id="newsFeed_NewsFeedCgServiceClient"
 		serviceClass="com.company.news.feed.services.coarsegrained.news.NewsFeedCgService"
 		address="http://localhost:8080/NEWS-FEED-BH-APP/NewsFeedService" />
 	

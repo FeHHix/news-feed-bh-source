@@ -17,6 +17,7 @@
 	
 	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/newsFeedDS"/>
  	
+ 	<import resource="classpath:config/jaxws.xml"/>
     <import resource="classpath:config/common-application-resources.xml"/>
     <import resource="classpath:news-feed-client-beans.xml"/>
  
